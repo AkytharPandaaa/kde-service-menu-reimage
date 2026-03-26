@@ -25,335 +25,456 @@
 new_line="
 "
 
-load_language_en_US () {
-	msg_common_software_not_found_title="Software not found"
-	msg_common_magick_not_found_text="Software \"ImageMagick\" was not found! Please install it."
-	# msg_common_mogrify_not_found_text="Software ImageMagick not found! Please, install it."
-	# msg_common_convert_not_found_text="Software ImageMagick not found! Please, install it."
-	# msg_common_montage_not_found_text="Software ImageMagick not found! Please, install it."
-	msg_common_exiftool_not_found_text="Software \"Exiftool\" was not found! Please install it."
-	# msg_common_jhead_not_found_text="Software \"Jhead\" was not found! Please install it."
-	# msg_common_webp_not_found_text="Software \"WebP\" was not found! Please install it."
-	msg_common_action_not_found_text="The requested action is not implemented."
-	msg_common_overwrite_text="In case the images to be saved have the same name as those to be processed,${new_line}do you want to overwrite them?"
-	msg_common_abort="Operation interrupted by the user."
-	msg_common_file_not_found="File \"${name}\" not found!"
-	msg_common_name_error="The file name \"${name}\" does not match a recognized format for a date.${new_line}${new_line}The name must be of the type: YYYY-MM-DD_HHMMSS.jpg"
-	msg_common_start="Initialising ... "
-	msg_common_progress_text="Processing file $processed of $quantity ($(basename "${input}"))"
-	msg_common_finish_ok="Done."
-	msg_common_finish_error="An error has occurred."
-	msg_common_transparent_unsupported_text="The JPEG format does not support transparency.${new_line}Convert to PNG file."
-# 	msg_common_details="Details:"
+load_language_en_US() {
+  msg_common_software_not_found_title="Software not found"
+  msg_common_magick_not_found_text="Software \"ImageMagick\" was not found! Please install it."
+  # msg_common_mogrify_not_found_text="Software ImageMagick not found! Please, install it."
+  # msg_common_convert_not_found_text="Software ImageMagick not found! Please, install it."
+  # msg_common_montage_not_found_text="Software ImageMagick not found! Please, install it."
+  msg_common_exiftool_not_found_text="Software \"Exiftool\" was not found! Please install it."
+  # msg_common_jhead_not_found_text="Software \"Jhead\" was not found! Please install it."
+  # msg_common_webp_not_found_text="Software \"WebP\" was not found! Please install it."
+  msg_common_action_not_found_text="The requested action is not implemented."
+  msg_common_overwrite_text="In case the images to be saved have the same name as those to be processed,${new_line}do you want to overwrite them?"
+  msg_common_abort="Operation interrupted by the user."
+  msg_common_file_not_found="File \"${name}\" not found!"
+  msg_common_name_error="The file name \"${name}\" does not match a recognized format for a date.${new_line}${new_line}The name must be of the type: YYYY-MM-DD_HHMMSS.jpg"
+  msg_common_start="Initialising ... "
+  msg_common_progress_text="Processing file $processed of $quantity ($(basename "${input}"))"
+  msg_common_finish_ok="Done."
+  msg_common_finish_error="An error has occurred."
+  msg_common_transparent_unsupported_text="The JPEG format does not support transparency.${new_line}Convert to PNG file."
+  # 	msg_common_details="Details:"
 
-	msg_agif_title="Convert files into animated GIF"
-	msg_agif_delay_input_text="Enter the duration of the single frame, in hundredths of a second:${new_line}(100 = 1 second)"
-	msg_agif_loop_input_text="Do you want loop playback?"
-	msg_agif_cicles_number_input_text="Type the number of repetitions of the animation:"
-	msg_agif_finish_title="Convert files into animated GIF"
+  msg_agif_title="Convert files into animated GIF"
+  msg_agif_delay_input_text="Enter the duration of the single frame, in hundredths of a second:${new_line}(100 = 1 second)"
+  msg_agif_loop_input_text="Do you want loop playback?"
+  msg_agif_cicles_number_input_text="Type the number of repetitions of the animation:"
+  msg_agif_finish_title="Convert files into animated GIF"
 
-	msg_border_title="Add border"
-	msg_border_size_input_text="Type the size of border in percentage or in pixel.${new_line}${new_line}Valid values can be: 10% or 50"
-	msg_border_finish_title="Add border to \"${name}\""
+  msg_border_title="Add border"
+  msg_border_size_input_text="Type the size of border in percentage or in pixel.${new_line}${new_line}Valid values can be: 10% or 50"
+  msg_border_finish_title="Add border to \"${name}\""
 
-	msg_colorspace_title="Changing colorspace to \"${value}\""
-	msg_colorspace_finish_title="Changing colorspace of \"${name}\""
+  msg_colorspace_title="Changing colorspace to \"${value}\""
+  msg_colorspace_finish_title="Changing colorspace of \"${name}\""
 
-	msg_compress_title="Image compression with quality \"${value}\""
-	msg_compress_quality_input_text="Type the quality:"
-	msg_compress_finish_title="Compression of \"${name}\""
+  msg_compress_title="Image compression with quality \"${value}\""
+  msg_compress_quality_input_text="Type the quality:"
+  msg_compress_finish_title="Compression of \"${name}\""
 
-	msg_convert_title="Convert file to \"${value}\" format"
-	msg_convert_format_input_text="Type the format you want.${new_line}A complete list can be obtained from the shell with: \`${magick_bin} -list format\`${new_line}or by consulting the ImageMagick manual."
-	msg_convert_finish_title="Conversion of \"${name}\""
+  msg_convert_title="Convert file to \"${value}\" format"
+  msg_convert_format_input_text="Type the format you want.${new_line}A complete list can be obtained from the shell with: \`${magick_bin} -list format\`${new_line}or by consulting the ImageMagick manual."
+  msg_convert_finish_title="Conversion of \"${name}\""
 
-	msg_favicons_title="Favicons generation"
-	msg_favicons_finish_title="Generating favicons by \"${name}\""
+  msg_favicons_title="Favicons generation"
+  msg_favicons_finish_title="Generating favicons by \"${name}\""
 
-	msg_montage_title="Append picture"
-	msg_montage_finish_title="Append picture to \"${name}\""
+  msg_montage_title="Append picture"
+  msg_montage_finish_title="Append picture to \"${name}\""
 
-	msg_optimize_title="Optimization for web"
-	msg_optimize_finish_title="Optimize \"${name}\""
+  msg_optimize_title="Optimization for web"
+  msg_optimize_finish_title="Optimize \"${name}\""
 
-	msg_overturn_title="Overturn file to \"${value}\""
-	msg_overturn_finish_title="Overturn \"${name}\""
+  msg_overturn_title="Overturn file to \"${value}\""
+  msg_overturn_finish_title="Overturn \"${name}\""
 
-	msg_progressive_title="Make file progressive"
-	msg_progressive_finish_title="Make \"${name}\" progressive"
+  msg_progressive_title="Make file progressive"
+  msg_progressive_finish_title="Make \"${name}\" progressive"
 
-	msg_resize_title="Resizing image \"${value}\""
-	msg_resize_scale_input_text="Type the scale factor in percentage or the maximum size you want for one or each direction.${new_line}You can choose a percentage or a pixel size.${new_line}${new_line}Example values: 30%, 1024x768, 1024x, x768"
-	msg_resize_finish_title="Resizing of \"${name}\""
+  msg_resize_title="Resizing image \"${value}\""
+  msg_resize_scale_input_text="Type the scale factor in percentage or the maximum size you want for one or each direction.${new_line}You can choose a percentage or a pixel size.${new_line}${new_line}Example values: 30%, 1024x768, 1024x, x768"
+  msg_resize_finish_title="Resizing of \"${name}\""
 
-	msg_rotate_title="Rotate file with angle of \"${value}\""
-	msg_rotate_angle_input_text="Enter the desired rotation angle:"
-	msg_rotate_finish_title="Rotation \"${name}\""
+  msg_rotate_title="Rotate file with angle of \"${value}\""
+  msg_rotate_angle_input_text="Enter the desired rotation angle:"
+  msg_rotate_finish_title="Rotation \"${name}\""
 
-	msg_sepia_title="Sepia filter"
-	msg_sepia_finish_title="Sepia filter to \"${name}\""
+  msg_sepia_title="Sepia filter"
+  msg_sepia_finish_title="Sepia filter to \"${name}\""
 
-	msg_shadow_title="Drop shadow"
-	msg_shadow_finish_title="Drop shadow to \"${name}\""
+  msg_shadow_title="Drop shadow"
+  msg_shadow_finish_title="Drop shadow to \"${name}\""
 
-	msg_timestamp_title="Add timestamp"
-	msg_timestamp_no_metadata="It is possible that the image \"${name}\" does not contain the required metadata."
-	msg_timestamp_finish_title="Add timestamp to \"${name}\""
+  msg_timestamp_title="Add timestamp"
+  msg_timestamp_no_metadata="It is possible that the image \"${name}\" does not contain the required metadata."
+  msg_timestamp_finish_title="Add timestamp to \"${name}\""
 
-	msg_transparent2color_title="Changing transparence to color"
-	msg_transparent2color_finish_title="Changing transparence to color of \"${name}\""
+  msg_transparent2color_title="Changing transparence to color"
+  msg_transparent2color_finish_title="Changing transparence to color of \"${name}\""
 
-	msg_rfe_title="Rename file from Exif metadata"
-	msg_rfe_no_metadata="It is possible that the image \"${name}\" does not contain the required metadata."
-	msg_rfe_finish_title="Rename file \"${name}\""
+  msg_rfe_title="Rename file from Exif metadata"
+  msg_rfe_no_metadata="It is possible that the image \"${name}\" does not contain the required metadata."
+  msg_rfe_finish_title="Rename file \"${name}\""
 
-	msg_rff_title="Rename file from file's date"
-	msg_rff_finish_title="Rename file \"${name}\""
+  msg_rff_title="Rename file from file's date"
+  msg_rff_finish_title="Rename file \"${name}\""
 
-	msg_sffe_title="Setting file date from Exif Metadata"
-	msg_sffe_no_metadata="It is possible that the image \"${name}\" does not contain the required metadata."
-	msg_sffe_finish_title="Setting date of \"${name}\""
+  msg_sffe_title="Setting file date from Exif Metadata"
+  msg_sffe_no_metadata="It is possible that the image \"${name}\" does not contain the required metadata."
+  msg_sffe_finish_title="Setting date of \"${name}\""
 
-	msg_sffn_title="Setting file date from file name"
-	msg_sffn_finish_title="Setting date of \"${name}\""
+  msg_sffn_title="Setting file date from file name"
+  msg_sffn_finish_title="Setting date of \"${name}\""
 
-	msg_seff_title="Setting Exif date from file date"
-	msg_seff_finish_title="Setting date of \"${name}\""
+  msg_seff_title="Setting Exif date from file date"
+  msg_seff_finish_title="Setting date of \"${name}\""
 
-	msg_sefn_title="Setting Exif date from file name"
-	msg_sefn_finish_title="Setting date of \"${name}\""
+  msg_sefn_title="Setting Exif date from file name"
+  msg_sefn_finish_title="Setting date of \"${name}\""
 
-	msg_ac_title="Add comment"
-	msg_ac_comment_input_text="Write comment to add:"
-	msg_ac_finish_title="Add comment into \"${name}\""
+  msg_ac_title="Add comment"
+  msg_ac_comment_input_text="Write comment to add:"
+  msg_ac_finish_title="Add comment into \"${name}\""
 
-	msg_ve_title="View metadata"
-	msg_ve_finish_title="View metadata of \"${name}\""
+  msg_ve_title="View metadata"
+  msg_ve_finish_title="View metadata of \"${name}\""
 
-	msg_ee_title="Extract metadata"
-	msg_ee_finish_title="Extract metadata from \"${name}\""
+  msg_ee_title="Extract metadata"
+  msg_ee_finish_title="Extract metadata from \"${name}\""
 
-	msg_dc_title="Delete comment"
-	msg_dc_finish_title="Delete comment from \"${name}\""
+  msg_dc_title="Delete comment"
+  msg_dc_finish_title="Delete comment from \"${name}\""
 
-	msg_de_title="Strip Exif section"
-	msg_de_finish_title="Strip Exif section from \"${name}\""
+  msg_de_title="Strip Exif section"
+  msg_de_finish_title="Strip Exif section from \"${name}\""
 
-	msg_di_title="Delete IPTC section"
-	msg_di_finish_title="Delete IPTC section from \"${name}\""
+  msg_di_title="Delete IPTC section"
+  msg_di_finish_title="Delete IPTC section from \"${name}\""
 
-	msg_dx_title="Delete XMP section"
-	msg_dx_finish_title="Delete XMP section from \"${name}\""
+  msg_dx_title="Delete XMP section"
+  msg_dx_finish_title="Delete XMP section from \"${name}\""
 
-	msg_purejpg_title="Strip all unnecessary data"
-	msg_purejpg_finish_title="Strip all unnecessary data from \"${name}\""
+  msg_purejpg_title="Strip all unnecessary data"
+  msg_purejpg_finish_title="Strip all unnecessary data from \"${name}\""
 
-	msg_stripall_title="Strip all metadata"
-	msg_stripall_finish_title="Strip all metadata from \"${name}\""
+  msg_stripall_title="Strip all metadata"
+  msg_stripall_finish_title="Strip all metadata from \"${name}\""
 }
 
-load_language_it () {
-	msg_common_software_not_found_title="Software non trovato"
-	msg_common_magick_not_found_text="Il software \"ImageMagick\" non è stato trovato! Per favore installalo."
-	# msg_common_mogrify_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
-	# msg_common_convert_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
-	# msg_common_montage_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
-	msg_common_exiftool_not_found_text="Il software \"Exiftool\" non è stato trovato! Per favore installalo."
-	# msg_common_jhead_not_found_text="Il software \"Jhead\" non è stato trovato! Per favore installalo."
-	# msg_common_webp_not_found_text="Il software \"WebP\" non è stato trovato! Per favore installalo."
-	msg_common_action_not_found_text="L'azione richiesta non è implementata."
-	msg_common_overwrite_text="Nel caso che le immagini da salvare abbiano lo stesso nome di quelle da elaborare,${new_line}vuoi sovrascriverle?"
-	msg_common_abort="Operazione interrotta dall'utente."
-	msg_common_file_not_found="Il file \"${name}\" non è stato trovato!"
-	msg_common_name_error="Il nome del file \"${name}\" non corrisponde ad un formato riconosciuto per una data.${new_line}${new_line}Il nome deve essere del tipo: YYYY-MM-DD_HHMMSS.jpg"
-	msg_common_start="Inizializzazione ..."
-	msg_common_progress_text="Elaborazione file $processed di $quantity ($(basename "${input}"))"
-	msg_common_finish_ok="Completato."
-	msg_common_finish_error="Si è verificato un errore durante l'operazione corrente."
-	msg_common_transparent_unsupported_text="Il formato JPEG non supporta la trasparenza.${new_line}Converto in PNG."
-# 	msg_common_details="Dettagli:"
+load_language_it() {
+  msg_common_software_not_found_title="Software non trovato"
+  msg_common_magick_not_found_text="Il software \"ImageMagick\" non è stato trovato! Per favore installalo."
+  # msg_common_mogrify_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
+  # msg_common_convert_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
+  # msg_common_montage_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
+  msg_common_exiftool_not_found_text="Il software \"Exiftool\" non è stato trovato! Per favore installalo."
+  # msg_common_jhead_not_found_text="Il software \"Jhead\" non è stato trovato! Per favore installalo."
+  # msg_common_webp_not_found_text="Il software \"WebP\" non è stato trovato! Per favore installalo."
+  msg_common_action_not_found_text="L'azione richiesta non è implementata."
+  msg_common_overwrite_text="Nel caso che le immagini da salvare abbiano lo stesso nome di quelle da elaborare,${new_line}vuoi sovrascriverle?"
+  msg_common_abort="Operazione interrotta dall'utente."
+  msg_common_file_not_found="Il file \"${name}\" non è stato trovato!"
+  msg_common_name_error="Il nome del file \"${name}\" non corrisponde ad un formato riconosciuto per una data.${new_line}${new_line}Il nome deve essere del tipo: YYYY-MM-DD_HHMMSS.jpg"
+  msg_common_start="Inizializzazione ..."
+  msg_common_progress_text="Elaborazione file $processed di $quantity ($(basename "${input}"))"
+  msg_common_finish_ok="Completato."
+  msg_common_finish_error="Si è verificato un errore durante l'operazione corrente."
+  msg_common_transparent_unsupported_text="Il formato JPEG non supporta la trasparenza.${new_line}Converto in PNG."
+  # 	msg_common_details="Dettagli:"
 
-	msg_agif_title="Conversione files in una GIF animata"
-	msg_agif_delay_input_text="Inserire la durata del singolo frame, in centesimi di secondo:${new_line}(100 = 1 secondo)"
-	msg_agif_loop_input_text="Vuoi che il file venga riprodotto in loop?"
-	msg_agif_cicles_number_input_text="Digitare il numero di ripetizioni dell'anumazione:"
-	msg_agif_finish_title="Conversione files in una GIF animata"
+  msg_agif_title="Conversione files in una GIF animata"
+  msg_agif_delay_input_text="Inserire la durata del singolo frame, in centesimi di secondo:${new_line}(100 = 1 secondo)"
+  msg_agif_loop_input_text="Vuoi che il file venga riprodotto in loop?"
+  msg_agif_cicles_number_input_text="Digitare il numero di ripetizioni dell'anumazione:"
+  msg_agif_finish_title="Conversione files in una GIF animata"
 
-	msg_border_title="Aggiungi bordo"
-	msg_border_size_input_text="Digitare la dimensione del bordo desiderata, in percentuale o in pixel.${new_line}${new_line}Valori validi possono essere: 10% or 50"
-	msg_border_finish_title="Aggiunta del bordo a \"${name}\""
+  msg_border_title="Aggiungi bordo"
+  msg_border_size_input_text="Digitare la dimensione del bordo desiderata, in percentuale o in pixel.${new_line}${new_line}Valori validi possono essere: 10% or 50"
+  msg_border_finish_title="Aggiunta del bordo a \"${name}\""
 
-	msg_colorspace_title="Cambiamento dello spazio dei colori a \"${value}\""
-	msg_colorspace_finish_title="Cambiamento dello spazio dei colori di \"${name}\""
+  msg_colorspace_title="Cambiamento dello spazio dei colori a \"${value}\""
+  msg_colorspace_finish_title="Cambiamento dello spazio dei colori di \"${name}\""
 
-	msg_compress_title="Compressione immagine con qualità \"${value}\""
-	msg_compress_quality_input_text="Digitare la qualità che si desidera."
-	msg_compress_finish_title="Compressione di \"${name}\""
+  msg_compress_title="Compressione immagine con qualità \"${value}\""
+  msg_compress_quality_input_text="Digitare la qualità che si desidera."
+  msg_compress_finish_title="Compressione di \"${name}\""
 
-	msg_convert_title="Conversione immagine nel formato \"${value}\""
-	msg_convert_format_input_text="Digitare il formato che si desidera.${new_line}Una lista completa può essere ottenuta da shell con: \`${magick_bin} -list format\`${new_line}oppure consultando il manuale di ImageMagick."
-	msg_convert_finish_title="Conversione di \"${name}\""
+  msg_convert_title="Conversione immagine nel formato \"${value}\""
+  msg_convert_format_input_text="Digitare il formato che si desidera.${new_line}Una lista completa può essere ottenuta da shell con: \`${magick_bin} -list format\`${new_line}oppure consultando il manuale di ImageMagick."
+  msg_convert_finish_title="Conversione di \"${name}\""
 
-	msg_favicons_title="Generazione favicons"
-	msg_favicons_finish_title="Generazione favicons da \"${name}\""
+  msg_favicons_title="Generazione favicons"
+  msg_favicons_finish_title="Generazione favicons da \"${name}\""
 
-	msg_montage_title="Affiancamento immagine"
-	msg_montage_finish_title="Affiancamento immagine a \"${name}\""
+  msg_montage_title="Affiancamento immagine"
+  msg_montage_finish_title="Affiancamento immagine a \"${name}\""
 
-	msg_optimize_title="Ottimizzazione per il web"
-	msg_optimize_finish_title="Ottimizzazione \"${name}\""
+  msg_optimize_title="Ottimizzazione per il web"
+  msg_optimize_finish_title="Ottimizzazione \"${name}\""
 
-	msg_overturn_title="Ribalta \"${value}\""
-	msg_overturn_finish_title="Ribaltamento file \"${name}\""
+  msg_overturn_title="Ribalta \"${value}\""
+  msg_overturn_finish_title="Ribaltamento file \"${name}\""
 
-	msg_progressive_title="Rendi il file progressivo"
-	msg_progressive_finish_title="Rendi \"${name}\" progressivo"
+  msg_progressive_title="Rendi il file progressivo"
+  msg_progressive_finish_title="Rendi \"${name}\" progressivo"
 
-	msg_resize_title="Ridimensionamento immagine \"${value}\""
-	msg_resize_scale_input_text="Digita il fattore di scala in percentuale o la dimensione massima desiderata per una o ciascuna direzione.${new_line}Puoi scegliere una percentuale o una dimensione in pixel.${new_line}${new_line}Valori di esempio: 30%, 1024x768, 1024x, x768"
-	msg_resize_finish_title="Ridimensionamento di \"${name}\""
+  msg_resize_title="Ridimensionamento immagine \"${value}\""
+  msg_resize_scale_input_text="Digita il fattore di scala in percentuale o la dimensione massima desiderata per una o ciascuna direzione.${new_line}Puoi scegliere una percentuale o una dimensione in pixel.${new_line}${new_line}Valori di esempio: 30%, 1024x768, 1024x, x768"
+  msg_resize_finish_title="Ridimensionamento di \"${name}\""
 
-	msg_rotate_title="Rotazione file di \"${value}\" gradi"
-	msg_rotate_angle_input_text="Inserire l'angolo di rotazione desiderato:"
-	msg_rotate_finish_title="Rotazione del file \"${name}\""
+  msg_rotate_title="Rotazione file di \"${value}\" gradi"
+  msg_rotate_angle_input_text="Inserire l'angolo di rotazione desiderato:"
+  msg_rotate_finish_title="Rotazione del file \"${name}\""
 
-	msg_sepia_title="Effetto seppia"
-	msg_sepia_finish_title="Effetto seppia a \"${name}\""
+  msg_sepia_title="Effetto seppia"
+  msg_sepia_finish_title="Effetto seppia a \"${name}\""
 
-	msg_shadow_title="Aggiungi ombra"
-	msg_shadow_finish_title="Aggiungi ombra a \"${name}\""
+  msg_shadow_title="Aggiungi ombra"
+  msg_shadow_finish_title="Aggiungi ombra a \"${name}\""
 
-	msg_timestamp_title="Aggiungi timestamp"
-	msg_timestamp_no_metadata="L'immagine \"${name}\" potrebbe non contenere i metadati richiesti."
-	msg_timestamp_finish_title="Aggiungi timestamp a \"${name}\""
+  msg_timestamp_title="Aggiungi timestamp"
+  msg_timestamp_no_metadata="L'immagine \"${name}\" potrebbe non contenere i metadati richiesti."
+  msg_timestamp_finish_title="Aggiungi timestamp a \"${name}\""
 
-	msg_transparent2color_title="Cambio della trasparenza a colore"
-	msg_transparent2color_finish_title="Cambio della trasparenza a colore di \"${name}\""
+  msg_transparent2color_title="Cambio della trasparenza a colore"
+  msg_transparent2color_finish_title="Cambio della trasparenza a colore di \"${name}\""
 
-	msg_rfe_title="Rinomina file con la data Exif"
-	msg_rfe_no_metadata="L'immagine \"${name}\" potrebbe non contenere i metadati richiesti."
-	msg_rfe_finish_title="Rinomina file \"${name}\""
+  msg_rfe_title="Rinomina file con la data Exif"
+  msg_rfe_no_metadata="L'immagine \"${name}\" potrebbe non contenere i metadati richiesti."
+  msg_rfe_finish_title="Rinomina file \"${name}\""
 
-	msg_rff_title="Rinomina file con la data del file"
-	msg_rff_finish_title="Rinomina file \"${name}\""
+  msg_rff_title="Rinomina file con la data del file"
+  msg_rff_finish_title="Rinomina file \"${name}\""
 
-	msg_sffe_title="Cambiamento data del file con la data Exif"
-	msg_sffe_no_metadata="L'immagine \"${name}\" potrebbe non contenere i metadati richiesti."
-	msg_sffe_finish_title="Cambiamento data di \"${name}\""
+  msg_sffe_title="Cambiamento data del file con la data Exif"
+  msg_sffe_no_metadata="L'immagine \"${name}\" potrebbe non contenere i metadati richiesti."
+  msg_sffe_finish_title="Cambiamento data di \"${name}\""
 
-	msg_sffn_title="Cambiamento data del file dal nome"
-	msg_sffn_finish_title="Cambiamento data di \"${name}\""
+  msg_sffn_title="Cambiamento data del file dal nome"
+  msg_sffn_finish_title="Cambiamento data di \"${name}\""
 
-	msg_seff_title="Cambiamento data Exif dalla data del file"
-	msg_seff_finish_title="Cambiamento data di \"${name}\""
+  msg_seff_title="Cambiamento data Exif dalla data del file"
+  msg_seff_finish_title="Cambiamento data di \"${name}\""
 
-	msg_sefn_title="Cambiamento data Exif dal nome del file"
-	msg_sefn_finish_title="Cambiamento data di \"${name}\""
+  msg_sefn_title="Cambiamento data Exif dal nome del file"
+  msg_sefn_finish_title="Cambiamento data di \"${name}\""
 
-	msg_ac_title="Aggiungi un commento"
-	msg_ac_comment_input_text="Scrivi il commento da aggiungere:"
-	msg_ac_finish_title="Aggiungi un commento in \"${name}\""
+  msg_ac_title="Aggiungi un commento"
+  msg_ac_comment_input_text="Scrivi il commento da aggiungere:"
+  msg_ac_finish_title="Aggiungi un commento in \"${name}\""
 
-	msg_ve_title="Visualizza metadati"
-	msg_ve_finish_title="Visualizza metadati di \"${name}\""
+  msg_ve_title="Visualizza metadati"
+  msg_ve_finish_title="Visualizza metadati di \"${name}\""
 
-	msg_ee_title="Estrai metadati"
-	msg_ee_finish_title="Estrai metadati da \"${name}\""
+  msg_ee_title="Estrai metadati"
+  msg_ee_finish_title="Estrai metadati da \"${name}\""
 
-	msg_dc_title="Cancella commento"
-	msg_dc_finish_title="Cancella commento da \"${name}\""
+  msg_dc_title="Cancella commento"
+  msg_dc_finish_title="Cancella commento da \"${name}\""
 
-	msg_de_title="Svuota i metadati Exif"
-	msg_de_finish_title="Svuota i metadati Exif da \"${name}\""
+  msg_de_title="Svuota i metadati Exif"
+  msg_de_finish_title="Svuota i metadati Exif da \"${name}\""
 
-	msg_di_title="Svuota i metadati IPTC"
-	msg_di_finish_title="Svuota i metadati IPTC da \"${name}\""
+  msg_di_title="Svuota i metadati IPTC"
+  msg_di_finish_title="Svuota i metadati IPTC da \"${name}\""
 
-	msg_dx_title="Svuota i metadati XMP"
-	msg_dx_finish_title="Svuota i metadati XMP da \"${name}\""
+  msg_dx_title="Svuota i metadati XMP"
+  msg_dx_finish_title="Svuota i metadati XMP da \"${name}\""
 
-	msg_purejpg_title="Elimina medatati non necessari"
-	msg_purejpg_finish_title="Elimina medatati non necessari da \"${name}\""
+  msg_purejpg_title="Elimina medatati non necessari"
+  msg_purejpg_finish_title="Elimina medatati non necessari da \"${name}\""
 
-	msg_stripall_title="Elimina tutti i metadati"
-	msg_stripall_finish_title="Elimina tutti i metadati da \"${name}\""
+  msg_stripall_title="Elimina tutti i metadati"
+  msg_stripall_finish_title="Elimina tutti i metadati da \"${name}\""
 }
 
-load_language () {
-	## Load localized strings AFTER english strings
-	## - if localized strings not found use english for default
-	## - if localized strings are incomplete use english only fot missing strings :-)
-	load_language_en_US && [ "${lang}" != "en_US" ] && load_language_${lang}
+load_language_de() {
+  msg_common_software_not_found_title="Programm nicht gefunden"
+  msg_common_magick_not_found_text="\"ImageMagick\" wurde nicht gefunden. Bitte installieren Sie es."
+  msg_common_exiftool_not_found_text="\"Exiftool\" wurde nicht gefunden. Bitte installieren Sie es."
+  msg_common_action_not_found_text="Die angeforderte Funktion ist (noch) nicht implementiert."
+  msg_common_overwrite_text="Soll(en) die Datei(en) überschrieben werden?"
+  msg_common_abort="Vorgang abgebrochen."
+  msg_common_file_not_found="Datei \"${name}\" nicht gefunden!"
+  msg_common_name_error="Der Dateiname \"${name}\" entspricht nicht dem passenden Datumsformat.${new_line}${new_line}Der Dateiname muss folgendem Format entsprechen: YYYY-MM-DD_HHMMSS.jpg"
+  msg_common_start="Initialisieren ... "
+  msg_common_progress_text="Datei $processed von $quantity ($(basename "${input}")) wird verarbeitet."
+  msg_common_finish_ok="Abgeschlossen."
+  msg_common_finish_error="Ein Fehler ist aufgetreten."
+  msg_common_transparent_unsupported_text="JPEG unterstützt keine Transparenz.${new_line}Bitte in PNG umwandeln."
+
+  msg_agif_title="In animiertes GIF umwandeln"
+  msg_agif_delay_input_text="Bitte geben Sie die Dauer des Einzelbilds in Hundertstelsekunden ein:${new_line}(100 = 1 Sekunde)"
+  msg_agif_loop_input_text="Soll die Animation in Endlosschleife abgespielt werden?"
+  msg_agif_cicles_number_input_text="Geben Sie die Anzahl der Wiederholungen der Animation ein:"
+  msg_agif_finish_title="Dateien in GIF Animation umwandeln"
+
+  msg_border_title="Rahmen hinzufügen"
+  msg_border_size_input_text="Bitte geben Sie die prozentuale Breite des Rahmens an.${new_line}${new_line}Werte zwischen 10% und 50% sind möglich."
+  msg_border_finish_title="Rahmen zu \"${name}\" hinzufügen"
+
+  msg_colorspace_title="Farbraum zu \"${value}\" ändern"
+  msg_colorspace_finish_title="Ändert den Farbraum von \"${name}\""
+
+  msg_compress_title="Auf \"${value}\" Qualität komprimieren"
+  msg_compress_quality_input_text="Bitte geben Sie die Qualität ein:"
+  msg_compress_finish_title="Dateikomprimierung von \"${name}\""
+
+  msg_convert_title="In \"${value}\" umwandeln"
+  msg_convert_format_input_text="Bitte geben Sie das Format ein.${new_line}Eine vollständige Liste kann über die Konsole mit \`${magick_bin} -list format\` abgerufen${new_line}oder in der ImageMagick Dokumentation nachgelesen werden."
+  msg_convert_finish_title="Umwandlung von \"${name}\""
+
+  msg_favicons_title="Erstelle Favicon(s)"
+  msg_favicons_finish_title="Erstelle Favicon(s) von \"${name}\""
+
+  msg_montage_title="Bilder zusammenfügen"
+  msg_montage_finish_title="Bilder mit \"${name}\" zusammenfügen"
+
+  msg_optimize_title="Für Web optimieren"
+  msg_optimize_finish_title="Optimiere \"${name}\""
+
+  msg_overturn_title="Datei \"${value}\" spiegeln"
+  msg_overturn_finish_title="Verarbeite \"${name}\""
+
+  msg_progressive_title="Erstelle progressives JPEG"
+  msg_progressive_finish_title="Wandle \"${name}\" in progressive JPEG um"
+
+  msg_resize_title="Bildgröße anpassen \"${value}\""
+  msg_resize_scale_input_text="Bitte tragen Sie den prozentualen Faktor für die Skalierung oder die Länge und Breite ein.${new_line}${new_line}Beispielwerte: 30%, 1024x768, 1024x, x768"
+  msg_resize_finish_title="Größenänderung von \"${name}\""
+
+  msg_rotate_title="Um \"${value}°\" drehen"
+  msg_rotate_angle_input_text="Bitte geben Sie den gewünschten Rotationswinkel ein:"
+  msg_rotate_finish_title="Rotation \"${name}\""
+
+  msg_sepia_title="Sepia Filter"
+  msg_sepia_finish_title="\"${name}\" umwandeln in Sepia"
+
+  msg_shadow_title="Schlagschatten"
+  msg_shadow_finish_title="Schlagschatten für \"${name}\""
+
+  msg_timestamp_title="Zeitstempel hinzufügen"
+  msg_timestamp_no_metadata="Möglicherweise enthält \"${name}\" nicht die passenden Metadaten."
+  msg_timestamp_finish_title="Zeitstempel zu \"${name}\" hinzufügen"
+
+  msg_transparent2color_title="Ändere Transparenz in Farbe"
+  msg_transparent2color_finish_title="Ändere Transparenz zu Farbe in \"${name}\""
+
+  msg_rfe_title="Umbenennen anhand der Exif Metadaten"
+  msg_rfe_no_metadata="Möglicherweise enthält \"${name}\" nicht die passenden Metadaten."
+  msg_rfe_finish_title="Umbenennen von: \"${name}\""
+
+  msg_rff_title="Umbenennen anhand des Änderungsdatums"
+  msg_rff_finish_title="Umbenennen von \"${name}\""
+
+  msg_sffe_title="Setze Ändungsdatum anhand der Exif Metadaten"
+  msg_sffe_no_metadata="Möglicherweise enthält \"${name}\" nicht die passenden Metadaten."
+  msg_sffe_finish_title="Setze Datum von \"${name}\""
+
+  msg_sffn_title="Setze Änderunsdatum anhand des Dateinamens"
+  msg_sffn_finish_title="Setze Datum von \"${name}\""
+
+  msg_seff_title="Setze Exif Datum anhand des Änderungsdatums"
+  msg_seff_finish_title="Setze Datum von \"${name}\""
+
+  msg_sefn_title="Setze Exif Datum anhand des Dateinamens"
+  msg_sefn_finish_title="Setze Datum von \"${name}\""
+
+  msg_ac_title="Kommentar hinzufügen"
+  msg_ac_comment_input_text="Bitte geben Sie den Kommentar ein:"
+  msg_ac_finish_title="Kommentar zu \"${name}\" hinzufügen"
+
+  msg_ve_title="Metadaten anzeigen"
+  msg_ve_finish_title="Anzeigen der Metadaten von \"${name}\""
+
+  msg_ee_title="Metadaten extrahieren"
+  msg_ee_finish_title="Metadaten von \"${name}\" extrahieren"
+
+  msg_dc_title="Kommentar entfernen"
+  msg_dc_finish_title="Kommentar von \"${name}\" entfernen"
+
+  msg_de_title="EXIF-Abschnitt entfernen"
+  msg_de_finish_title="EXIF-Abschnitt von \"${name}\" entfernen"
+
+  msg_di_title="IPTC-Abschnitt entfernen"
+  msg_di_finish_title="IPTC-Abschnitt von \"${name}\" entfernen"
+
+  msg_dx_title="XMP-Abschnitt entfernen"
+  msg_dx_finish_title="XMP-Abschnitt von \"${name}\" entfernen"
+
+  msg_purejpg_title="Unnötige Metadaten entfernen"
+  msg_purejpg_finish_title="Unnötige Metadaten von \"${name}\" entfernen"
+
+  msg_stripall_title="Alle Metadaten entfernen"
+  msg_stripall_finish_title="Alle Metadaten von \"${name}\" entfernen"
+}
+
+load_language() {
+  ## Load localized strings AFTER english strings
+  ## - if localized strings not found use english for default
+  ## - if localized strings are incomplete use english only fot missing strings :-)
+  load_language_en_US && [ "${lang}" != "en_US" ] && load_language_${lang}
 }
 
 lang=${LANGUAGE%%:*}
-type load_language_${lang} &> /dev/null || lang='en_US'
+type load_language_${lang} &>/dev/null || lang='en_US'
 load_language
 
 ################################################################################
 
-help () {
-	echo "${0##*/} is a bash script for:"
-	echo "- manipulating settings in Exif jpeg headers used by most Digital Cameras."
-	echo "- manipulating pictures properties"
-	echo
-	echo "USE:	${0##*/} action [value] files"
-	echo
-	echo "Actions on pictures:"
-	echo "agif		create animated gif (no value request)"
-	echo "colorspace	change colorspace (currently only gray)"
-	echo "compress	change quality (value in percent 1 to 100)"
-	echo "convert		change format (value: all formats supported by ImageMagick"
-	echo "optimize	Advance auto-optimization for web (no value request)"
-	echo "overturn	overturn image (value: flip, flop)"
-	echo "resize		resize image (value in percent or XxY)"
-	echo "rotate		rotate image (value is angle of rotation)"
-	echo "sepia		sepia filter to image (value is percent of used filter)"
-	echo
-	echo "Actions with metadata:"
-	echo "rfe		rename file with Exif datetime"
-	echo "rff		rename file with file's datetime"
-	echo "sffe		set file's datetime from Exif date"
-	echo "sffn		set file's datetime from file's name"
-	echo "seff		set Exif datetime from file's date"
-	echo "sefn		set Exif datetime from file's name"
-	echo "ac		Add/replace comment"
-	echo "ve		View metadata"
-	echo "ee		Extract metadata to file"
-	echo "dc		Delete comment field"
-	echo "de		Strip Exif section"
-	echo "di		Delete IPTC section"
-	echo "dx		Delete XMP section"
-	echo "purejpg	Strip all unnecessary data"
-	echo "stripall	Strip all metadata"
-	echo
-	echo
-	echo "Examples:"
-	echo "${0##*/} optimize /home/user/file1.jpg /home/user/file2.jpg"
-	echo "${0##*/} compress 70% /home/user/file1.jpg /home/user/file2.jpg"
-	echo "${0##*/} resize 50% /home/user/file1.jpg /home/user/file2.jpg"
-	echo "${0##*/} resize 640x480 /home/user/file1.jpg /home/user/file2.jpg"
-	echo
-	echo "${0##*/} convert png /home/user/file1.jpg /home/user/file2.jpg"
-	echo "${0##*/} agif /home/user/file1.jpg /home/user/file2.jpg"
-	echo "${0##*/} colorspace gray /home/user/file1.jpg /home/user/file2.jpg"
-	echo "${0##*/} sepia 80% /home/user/file1.jpg /home/user/file2.jpg"
-	echo "${0##*/} transparent2color /home/user/file1.png /home/user/file2.png"
-	echo "${0##*/} border custom /home/user/file1.png /home/user/file2.jpg"
-	echo "${0##*/} border transparent /home/user/file1.png /home/user/file2.png"
-	echo "${0##*/} shadow /home/user/file1.png /home/user/file2.png"
-	echo "${0##*/} rotate 90 /home/user/file1.jpg /home/user/file2.jpg"
-	echo "${0##*/} overturn flip /home/user/file1.jpg /home/user/file2.jpg"
-	echo
-	echo "${0##*/} timestamp /home/user/file1.jpg /home/user/file2.jpg"
-	echo
-	echo "${0##*/} rfe /home/user/file1.jpg /home/user/file2.jpg"
-	echo
-	exit 0
+help() {
+  echo "${0##*/} is a bash script for:"
+  echo "- manipulating settings in Exif jpeg headers used by most Digital Cameras."
+  echo "- manipulating pictures properties"
+  echo
+  echo "USE:	${0##*/} action [value] files"
+  echo
+  echo "Actions on pictures:"
+  echo "agif		create animated gif (no value request)"
+  echo "colorspace	change colorspace (currently only gray)"
+  echo "compress	change quality (value in percent 1 to 100)"
+  echo "convert		change format (value: all formats supported by ImageMagick"
+  echo "optimize	Advance auto-optimization for web (no value request)"
+  echo "overturn	overturn image (value: flip, flop)"
+  echo "resize		resize image (value in percent or XxY)"
+  echo "rotate		rotate image (value is angle of rotation)"
+  echo "sepia		sepia filter to image (value is percent of used filter)"
+  echo
+  echo "Actions with metadata:"
+  echo "rfe		rename file with Exif datetime"
+  echo "rff		rename file with file's datetime"
+  echo "sffe		set file's datetime from Exif date"
+  echo "sffn		set file's datetime from file's name"
+  echo "seff		set Exif datetime from file's date"
+  echo "sefn		set Exif datetime from file's name"
+  echo "ac		Add/replace comment"
+  echo "ve		View metadata"
+  echo "ee		Extract metadata to file"
+  echo "dc		Delete comment field"
+  echo "de		Strip Exif section"
+  echo "di		Delete IPTC section"
+  echo "dx		Delete XMP section"
+  echo "purejpg	Strip all unnecessary data"
+  echo "stripall	Strip all metadata"
+  echo
+  echo
+  echo "Examples:"
+  echo "${0##*/} optimize /home/user/file1.jpg /home/user/file2.jpg"
+  echo "${0##*/} compress 70% /home/user/file1.jpg /home/user/file2.jpg"
+  echo "${0##*/} resize 50% /home/user/file1.jpg /home/user/file2.jpg"
+  echo "${0##*/} resize 640x480 /home/user/file1.jpg /home/user/file2.jpg"
+  echo
+  echo "${0##*/} convert png /home/user/file1.jpg /home/user/file2.jpg"
+  echo "${0##*/} agif /home/user/file1.jpg /home/user/file2.jpg"
+  echo "${0##*/} colorspace gray /home/user/file1.jpg /home/user/file2.jpg"
+  echo "${0##*/} sepia 80% /home/user/file1.jpg /home/user/file2.jpg"
+  echo "${0##*/} transparent2color /home/user/file1.png /home/user/file2.png"
+  echo "${0##*/} border custom /home/user/file1.png /home/user/file2.jpg"
+  echo "${0##*/} border transparent /home/user/file1.png /home/user/file2.png"
+  echo "${0##*/} shadow /home/user/file1.png /home/user/file2.png"
+  echo "${0##*/} rotate 90 /home/user/file1.jpg /home/user/file2.jpg"
+  echo "${0##*/} overturn flip /home/user/file1.jpg /home/user/file2.jpg"
+  echo
+  echo "${0##*/} timestamp /home/user/file1.jpg /home/user/file2.jpg"
+  echo
+  echo "${0##*/} rfe /home/user/file1.jpg /home/user/file2.jpg"
+  echo
+  exit 0
 }
 
-formats () {
-formats="
+formats() {
+  formats="
 AAI	AAI Dune image
 AI	Adobe Illustrator CS2
 ART	PFS: 1st Publisher Clip Art
@@ -576,145 +697,145 @@ YCbCr	Raw Y, Cb, and Cr samples
 YCbCrA	Raw Y, Cb, Cr, and alpha samples
 YUV	CCIR 601 4:1:1 or 4:2:2
 "
-	"${kdialog_bin}" --icon configure --title "${!msg_title}" --msgbox "${formats}"
+  "${kdialog_bin}" --icon configure --title "${!msg_title}" --msgbox "${formats}"
 }
 
 ######################################## Run compress and resize
 
-run_compress () {
-	if [ "${overwrite}" = true ]; then
-		msg=$("${magick_bin}" "${input}" -quality "${quality}" "${input}" 2>&1)
-	else
-		msg=$("${magick_bin}" "${input}" -quality "${quality}" "${dir}/${base}_compressed.${ext}" 2>&1)
-	fi
+run_compress() {
+  if [ "${overwrite}" = true ]; then
+    msg=$("${magick_bin}" "${input}" -quality "${quality}" "${input}" 2>&1)
+  else
+    msg=$("${magick_bin}" "${input}" -quality "${quality}" "${dir}/${base}_compressed.${ext}" 2>&1)
+  fi
 
-	return $?
+  return $?
 }
 
-run_optimize () {
-	## https://www.smashingmagazine.com/2015/06/efficient-image-resizing-with-imagemagick/
-	if [ "${overwrite}" = true ]; then
-		# msg=$("${magick_bin}" mogrify -filter Triangle -define filter:support=2 -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -colorspace sRGB -strip -interlace Plane "${input}" 2>&1)
-		msg=$("${magick_bin}" "${input}" -filter Triangle -define filter:support=2 -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -colorspace sRGB -strip -interlace Plane "${input}" 2>&1)
-	else
-		msg=$("${magick_bin}" "${input}" -filter Triangle -define filter:support=2 -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -colorspace sRGB -strip -interlace Plane "${dir}/${base}_optimized.${ext}" 2>&1)
-	fi
-	return $?
+run_optimize() {
+  ## https://www.smashingmagazine.com/2015/06/efficient-image-resizing-with-imagemagick/
+  if [ "${overwrite}" = true ]; then
+    # msg=$("${magick_bin}" mogrify -filter Triangle -define filter:support=2 -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -colorspace sRGB -strip -interlace Plane "${input}" 2>&1)
+    msg=$("${magick_bin}" "${input}" -filter Triangle -define filter:support=2 -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -colorspace sRGB -strip -interlace Plane "${input}" 2>&1)
+  else
+    msg=$("${magick_bin}" "${input}" -filter Triangle -define filter:support=2 -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -colorspace sRGB -strip -interlace Plane "${dir}/${base}_optimized.${ext}" 2>&1)
+  fi
+  return $?
 }
 
-run_progressive () {
-	if [ "${overwrite}" = true ]; then
-		msg=$("${magick_bin}" "${input}" -strip -interlace Plane "${input}" 2>&1)
-	else
-		msg=$("${magick_bin}" "${input}" -strip -interlace Plane "${dir}/${base}_progressive.${ext}" 2>&1)
-	fi
-	return $?
+run_progressive() {
+  if [ "${overwrite}" = true ]; then
+    msg=$("${magick_bin}" "${input}" -strip -interlace Plane "${input}" 2>&1)
+  else
+    msg=$("${magick_bin}" "${input}" -strip -interlace Plane "${dir}/${base}_progressive.${ext}" 2>&1)
+  fi
+  return $?
 }
 
-run_resize () {
-	if [ "${overwrite}" = true ]; then
-		msg=$("${magick_bin}" "${input}" -resize "${scale}" "${input}" 2>&1)
-	else
-		msg=$("${magick_bin}" "${input}" -resize "${scale}" "${dir}/${base}_resized.${ext}" 2>&1)
-	fi
+run_resize() {
+  if [ "${overwrite}" = true ]; then
+    msg=$("${magick_bin}" "${input}" -resize "${scale}" "${input}" 2>&1)
+  else
+    msg=$("${magick_bin}" "${input}" -resize "${scale}" "${dir}/${base}_resized.${ext}" 2>&1)
+  fi
 
-	return $?
+  return $?
 }
 
 ######################################## Run convert and rotate
 
-run_agif () {
-	msg=$("${magick_bin}" -delay "${delay}" "${@}" -loop "${loop}" "${dir}/animated.gif" 2>&1)
-	return $?
+run_agif() {
+  msg=$("${magick_bin}" -delay "${delay}" "${@}" -loop "${loop}" "${dir}/animated.gif" 2>&1)
+  return $?
 }
 
-run_border () {
-	alpha_support=true
-	[ -n "$(file "${input}" | grep JFIF)" ] && alpha_support=false
+run_border() {
+  alpha_support=true
+  [ -n "$(file "${input}" | grep JFIF)" ] && alpha_support=false
 
-	if [ "${color}" = "transparent" ] && [ "${alpha_support}" = false ]; then
-		"${kdialog_bin}" --icon configure --title "${!msg_finish_title}" --sorry "${msg_common_transparent_unsupported_text}"
-		ext=png
-	fi
+  if [ "${color}" = "transparent" ] && [ "${alpha_support}" = false ]; then
+    "${kdialog_bin}" --icon configure --title "${!msg_finish_title}" --sorry "${msg_common_transparent_unsupported_text}"
+    ext=png
+  fi
 
-	if [ "${overwrite}" = true ]; then
-		output="${dir}/${base}.${ext}"
-	else
-		output="${dir}/${base}_border.${ext}"
-	fi
+  if [ "${overwrite}" = true ]; then
+    output="${dir}/${base}.${ext}"
+  else
+    output="${dir}/${base}_border.${ext}"
+  fi
 
-	msg=$("${magick_bin}" "${input}" -bordercolor "${color}" -border "${size}" "${output}" 2>&1)
-	return $?
+  msg=$("${magick_bin}" "${input}" -bordercolor "${color}" -border "${size}" "${output}" 2>&1)
+  return $?
 }
 
-run_colorspace () {
-	if [ "${overwrite}" = true ]; then
-		msg=$("${magick_bin}" "${input}" -colorspace "${value}" "${input}" 2>&1)
-	else
-		msg=$("${magick_bin}" "${input}" -colorspace "${value}" "${dir}/${base}_colorspace.${ext}" 2>&1)
-	fi
+run_colorspace() {
+  if [ "${overwrite}" = true ]; then
+    msg=$("${magick_bin}" "${input}" -colorspace "${value}" "${input}" 2>&1)
+  else
+    msg=$("${magick_bin}" "${input}" -colorspace "${value}" "${dir}/${base}_colorspace.${ext}" 2>&1)
+  fi
 
-	return $?
+  return $?
 }
 
-run_convert () {
-	if [ "${overwrite}" != true ] && [ "${ext}" = "${format}" ]; then
-		msg=$("${magick_bin}" "${input}" -format "${format}" "${dir}/${base}_converted.${format}" 2>&1)
-	else
-		msg=$("${magick_bin}" "${input}" -format "${format}" "${base}.${format}" 2>&1)
-	fi
+run_convert() {
+  if [ "${overwrite}" != true ] && [ "${ext}" = "${format}" ]; then
+    msg=$("${magick_bin}" "${input}" -format "${format}" "${dir}/${base}_converted.${format}" 2>&1)
+  else
+    msg=$("${magick_bin}" "${input}" -format "${format}" "${base}.${format}" 2>&1)
+  fi
 
-	return $?
+  return $?
 }
 
-run_favicons () {
-	dest_dir="${base}-favicons"
+run_favicons() {
+  dest_dir="${base}-favicons"
 
-	wxh=$("${magick_bin}" "${input}" -format "%w x %h" info:)
-	w=${wxh%% *}
-	h=${wxh##* }
-	max=$(( w > h ? w : h ))
+  wxh=$("${magick_bin}" "${input}" -format "%w x %h" info:)
+  w=${wxh%% *}
+  h=${wxh##* }
+  max=$((w > h ? w : h))
 
-	SOURCE_IMG="${base}_square.png"
-	"${magick_bin}" "${input}" -background transparent \
-		-compose Copy -gravity center -extent ${max}x${max} "${SOURCE_IMG}"
+  SOURCE_IMG="${base}_square.png"
+  "${magick_bin}" "${input}" -background transparent \
+    -compose Copy -gravity center -extent ${max}x${max} "${SOURCE_IMG}"
 
-	PLATFORMS=(ANDROID APPLE FAVICON MS)
-	ANDROID_ICON_NAME='android-icon'
-	ANDROID_ICON_SIZES=(36 48 72 96 144 192)
-	APPLE_ICON_NAME='apple-icon'
-	APPLE_ICON_SIZES=(57 60 72 76 114 120 144 152 180)
-	FAVICON_ICON_NAME='favicon'
-	FAVICON_ICON_SIZES=(16 32 96)
-	MS_ICON_NAME='ms-icon'
-	MS_ICON_SIZES=(70 144 150 310)
+  PLATFORMS=(ANDROID APPLE FAVICON MS)
+  ANDROID_ICON_NAME='android-icon'
+  ANDROID_ICON_SIZES=(36 48 72 96 144 192)
+  APPLE_ICON_NAME='apple-icon'
+  APPLE_ICON_SIZES=(57 60 72 76 114 120 144 152 180)
+  FAVICON_ICON_NAME='favicon'
+  FAVICON_ICON_SIZES=(16 32 96)
+  MS_ICON_NAME='ms-icon'
+  MS_ICON_SIZES=(70 144 150 310)
 
-	BROWSERCONFIG='browserconfig.xml'
-	MANIFEST='manifest.json'
+  BROWSERCONFIG='browserconfig.xml'
+  MANIFEST='manifest.json'
 
-	for PLATFORM in ${PLATFORMS[@]}; do
-		NAME="${PLATFORM}_ICON_NAME"
-		NAME=${!NAME}
+  for PLATFORM in ${PLATFORMS[@]}; do
+    NAME="${PLATFORM}_ICON_NAME"
+    NAME=${!NAME}
 
-		SIZES="${PLATFORM}_ICON_SIZES[@]"
-		SIZES=${!SIZES}
+    SIZES="${PLATFORM}_ICON_SIZES[@]"
+    SIZES=${!SIZES}
 
-		for i in ${SIZES[@]}; do
-			mkdir -p "${dest_dir}"
-			echo "${NAME}-${i}x${i}.png"
-			"${magick_bin}" "${SOURCE_IMG}" -resize "${i}x${i}!" "${dest_dir}/${NAME}-${i}x${i}.png"
-		done
-	done
+    for i in ${SIZES[@]}; do
+      mkdir -p "${dest_dir}"
+      echo "${NAME}-${i}x${i}.png"
+      "${magick_bin}" "${SOURCE_IMG}" -resize "${i}x${i}!" "${dest_dir}/${NAME}-${i}x${i}.png"
+    done
+  done
 
-	"${magick_bin}" "${SOURCE_IMG}" -resize 16x16 "${dest_dir}/favicon.ico"
-	"${magick_bin}" "${SOURCE_IMG}" -resize 192x192 "${dest_dir}/apple-icon.png"
-	"${magick_bin}" "${SOURCE_IMG}" -resize 192x192 "${dest_dir}/apple-icon-precomposed.png"
+  "${magick_bin}" "${SOURCE_IMG}" -resize 16x16 "${dest_dir}/favicon.ico"
+  "${magick_bin}" "${SOURCE_IMG}" -resize 192x192 "${dest_dir}/apple-icon.png"
+  "${magick_bin}" "${SOURCE_IMG}" -resize 192x192 "${dest_dir}/apple-icon-precomposed.png"
 
-	yes | rm "${SOURCE_IMG}"
+  yes | rm "${SOURCE_IMG}"
 
-	mkdir -p "${dest_dir}"
-	:> "${dest_dir}/${MANIFEST}"
-	cat << EOF > "${dest_dir}/${MANIFEST}"
+  mkdir -p "${dest_dir}"
+  : >"${dest_dir}/${MANIFEST}"
+  cat <<EOF >"${dest_dir}/${MANIFEST}"
 {
  "name": "App",
  "icons": [
@@ -758,590 +879,601 @@ run_favicons () {
 }
 EOF
 
-	mkdir -p "${dest_dir}"
-	:> "${dest_dir}/${BROWSERCONFIG}"
-	cat << EOF > "${dest_dir}/${BROWSERCONFIG}"
+  mkdir -p "${dest_dir}"
+  : >"${dest_dir}/${BROWSERCONFIG}"
+  cat <<EOF >"${dest_dir}/${BROWSERCONFIG}"
 <?xml version="1.0" encoding="utf-8"?>
 <browserconfig><msapplication><tile><square70x70logo src="/ms-icon-70x70.png"/><square150x150logo src="/ms-icon-150x150.png"/><square310x310logo src="/ms-icon-310x310.png"/><TileColor>#ffffff</TileColor></tile></msapplication></browserconfig>
 EOF
 
-	return 0
+  return 0
 }
 
-run_montage () {
-	msg=$("${magick_bin}" "${img_to_add}" -format "%h" info: 2>&1)
-	code=$?
-	[ $code -gt 0 ] && return $code
+run_montage() {
+  msg=$("${magick_bin}" "${img_to_add}" -format "%h" info: 2>&1)
+  code=$?
+  [ $code -gt 0 ] && return $code
 
-	height=$("${magick_bin}" "${input}" -format "%h" info: 2>&1)
-	msg=$("${magick_bin}" montage "${input}" -resize "x${height}" "${img_to_add}" -geometry +0+0 "${dir}/${base}_${img_to_add_base}.${ext}" 2>&1)
-	return $?
+  height=$("${magick_bin}" "${input}" -format "%h" info: 2>&1)
+  msg=$("${magick_bin}" montage "${input}" -resize "x${height}" "${img_to_add}" -geometry +0+0 "${dir}/${base}_${img_to_add_base}.${ext}" 2>&1)
+  return $?
 }
 
-run_overturn () {
-	if [ "${overwrite}" = true ]; then
-		msg=$("${magick_bin}" "${input}" -"${value}" "${input}" 2>&1)
-	else
-		msg=$("${magick_bin}" "${input}" -"${value}" "${dir}/${base}_${value}.${ext}" 2>&1)
-	fi
+run_overturn() {
+  if [ "${overwrite}" = true ]; then
+    msg=$("${magick_bin}" "${input}" -"${value}" "${input}" 2>&1)
+  else
+    msg=$("${magick_bin}" "${input}" -"${value}" "${dir}/${base}_${value}.${ext}" 2>&1)
+  fi
 
-	return $?
+  return $?
 }
 
-run_rotate () {
-	if [ "${overwrite}" = true ]; then
-		if [ "${angle}" = "auto" ]; then
-			msg=$("${magick_bin}" "${input}" -auto-orient "${input}" 2>&1)
-		else
-			msg=$("${magick_bin}" "${input}" -rotate "${angle}" "${input}" 2>&1)
-		fi
-	else
-		if [ "${angle}" = "auto" ]; then
-			msg=$("${magick_bin}" "${input}" -auto-orient "${dir}/${base}_rotated.${ext}" 2>&1)
-		else
-			msg=$("${magick_bin}" "${input}" -rotate "${angle}" "${dir}/${base}_rotated.${ext}" 2>&1)
-		fi
-	fi
+run_rotate() {
+  if [ "${overwrite}" = true ]; then
+    if [ "${angle}" = "auto" ]; then
+      msg=$("${magick_bin}" "${input}" -auto-orient "${input}" 2>&1)
+    else
+      msg=$("${magick_bin}" "${input}" -rotate "${angle}" "${input}" 2>&1)
+    fi
+  else
+    if [ "${angle}" = "auto" ]; then
+      msg=$("${magick_bin}" "${input}" -auto-orient "${dir}/${base}_rotated.${ext}" 2>&1)
+    else
+      msg=$("${magick_bin}" "${input}" -rotate "${angle}" "${dir}/${base}_rotated.${ext}" 2>&1)
+    fi
+  fi
 
-	return $?
+  return $?
 }
 
-run_sepia () {
-	if [ "${overwrite}" = true ]; then
-		msg=$("${magick_bin}" "${input}" -sepia-tone "${value}" "${input}" 2>&1)
-	else
-		msg=$("${magick_bin}" "${input}" -sepia-tone "${value}" "${dir}/${base}_sepia.${ext}" 2>&1)
-	fi
+run_sepia() {
+  if [ "${overwrite}" = true ]; then
+    msg=$("${magick_bin}" "${input}" -sepia-tone "${value}" "${input}" 2>&1)
+  else
+    msg=$("${magick_bin}" "${input}" -sepia-tone "${value}" "${dir}/${base}_sepia.${ext}" 2>&1)
+  fi
 
-	return $?
+  return $?
 }
 
-run_shadow () {
-	jfif=$(file "${input}" | grep JFIF)
-	[ -n "${jfif}" ] && "${kdialog_bin}" --icon configure --title "${!msg_finish_title}" --sorry "${msg_common_transparent_unsupported_text}" && return 0
+run_shadow() {
+  jfif=$(file "${input}" | grep JFIF)
+  [ -n "${jfif}" ] && "${kdialog_bin}" --icon configure --title "${!msg_finish_title}" --sorry "${msg_common_transparent_unsupported_text}" && return 0
 
-	if [ "${overwrite}" = true ]; then
-		msg=$("${magick_bin}" "${input}" \( +clone -background black -shadow 80x8+8+8 \) +swap -background none -layers merge +repage "${input}" 2>&1)
-	else
-		msg=$("${magick_bin}" "${input}" \( +clone -background black -shadow 80x8+8+8 \) +swap -background none -layers merge +repage "${dir}/${base}_shadow.${ext}" 2>&1)
-	fi
+  if [ "${overwrite}" = true ]; then
+    msg=$("${magick_bin}" "${input}" \( +clone -background black -shadow 80x8+8+8 \) +swap -background none -layers merge +repage "${input}" 2>&1)
+  else
+    msg=$("${magick_bin}" "${input}" \( +clone -background black -shadow 80x8+8+8 \) +swap -background none -layers merge +repage "${dir}/${base}_shadow.${ext}" 2>&1)
+  fi
 
-	return $?
+  return $?
 }
 
-run_timestamp () {
-	local timestamp=$("${exiftool_bin}" -s3 -DateTimeOriginal "${input}" 2>/dev/null)
-	# timestamp=$("${jhead_bin}" -exifmap "${input}" | grep "Date/Time" | sed "s/^[^:]*:[[:blank:]]*\([[:digit:]]\{4\}\):\([[:digit:]]\{2\}\):\([[:digit:]]\{2\}\)/\1-\2-\3/")
-	[ -z "${timestamp}" ] && msg=msg_${action}_no_metadata && msg="${!msg}" && return 1
+run_timestamp() {
+  local timestamp=$("${exiftool_bin}" -s3 -DateTimeOriginal "${input}" 2>/dev/null)
+  # timestamp=$("${jhead_bin}" -exifmap "${input}" | grep "Date/Time" | sed "s/^[^:]*:[[:blank:]]*\([[:digit:]]\{4\}\):\([[:digit:]]\{2\}\):\([[:digit:]]\{2\}\)/\1-\2-\3/")
+  [ -z "${timestamp}" ] && msg=msg_${action}_no_metadata && msg="${!msg}" && return 1
 
-	if [ "${overwrite}" = true ]; then
-		msg=$("${magick_bin}" "${input}" -gravity SouthEast -pointsize 30 -fill white -annotate +30+30 "${timestamp}" "${input}" 2>&1)
-	else
-		msg=$("${magick_bin}" "${input}" -gravity SouthEast -pointsize 30 -fill white -annotate +30+30 "${timestamp}" "${dir}/${base}_timestamp.${ext}" 2>&1)
-	fi
+  if [ "${overwrite}" = true ]; then
+    msg=$("${magick_bin}" "${input}" -gravity SouthEast -pointsize 30 -fill white -annotate +30+30 "${timestamp}" "${input}" 2>&1)
+  else
+    msg=$("${magick_bin}" "${input}" -gravity SouthEast -pointsize 30 -fill white -annotate +30+30 "${timestamp}" "${dir}/${base}_timestamp.${ext}" 2>&1)
+  fi
 
-	return $?
+  return $?
 }
 
-run_transparent2color () {
-	if [ "${overwrite}" = true ]; then
-		msg=$("${magick_bin}" "${input}" -background "${color}" -flatten "${input}" 2>&1)
-	else
-		msg=$("${magick_bin}" "${input}" -background "${color}" -flatten "${dir}/${base}_background.${ext}" 2>&1)
-	fi
+run_transparent2color() {
+  if [ "${overwrite}" = true ]; then
+    msg=$("${magick_bin}" "${input}" -background "${color}" -flatten "${input}" 2>&1)
+  else
+    msg=$("${magick_bin}" "${input}" -background "${color}" -flatten "${dir}/${base}_background.${ext}" 2>&1)
+  fi
 
-	return $?
+  return $?
 }
 
 ######################################## Run metadata scripts
 
 ## rename file with Exif datetime
-run_rfe () {
-	local datetime=$("${exiftool_bin}" -s3 -DateTimeOriginal "${input}" 2>/dev/null)
-	[ -z "${datetime}" ] && msg=msg_${action}_no_metadata && msg="${!msg}" && return 1
+run_rfe() {
+  local datetime=$("${exiftool_bin}" -s3 -DateTimeOriginal "${input}" 2>/dev/null)
+  [ -z "${datetime}" ] && msg=msg_${action}_no_metadata && msg="${!msg}" && return 1
 
-	# rename file according to exif datetime with original extension and format code in case of filename collision
-	msg=$("${exiftool_bin}" -dateFormat "%Y-%m-%d_%H%M%S%%+c.%%e" "-filename<DateTimeOriginal" -q "${input}" 2>&1)
-	# msg=$("${jhead_bin}" -exonly -q -nf%Y-%m-%d_%H%M%S -ft "${input}" 2>&1)
-	# code=$?
-	# [ -z "${msg}" ] && msg=msg_${action}_no_metadata && msg="${!msg}"
-	# return $code
-	return $?
+  # rename file according to exif datetime with original extension and format code in case of filename collision
+  msg=$("${exiftool_bin}" -dateFormat "%Y-%m-%d_%H%M%S%%+c.%%e" "-filename<DateTimeOriginal" -q "${input}" 2>&1)
+  # msg=$("${jhead_bin}" -exonly -q -nf%Y-%m-%d_%H%M%S -ft "${input}" 2>&1)
+  # code=$?
+  # [ -z "${msg}" ] && msg=msg_${action}_no_metadata && msg="${!msg}"
+  # return $code
+  return $?
 }
 
 ## rename file with file's datetime
-run_rff () {
-	# rename file according to file datetime with original extension and format code in case of filename collision
-	msg=$("${exiftool_bin}" -dateFormat "%Y-%m-%d_%H%M%S%%+c.%%e" "-filename<FileModifyDate" -q "${input}" 2>&1)
-	return $?
-	# DATE=$(date -r "${input}" +%Y-%m-%d_%H%M%S)
+run_rff() {
+  # rename file according to file datetime with original extension and format code in case of filename collision
+  msg=$("${exiftool_bin}" -dateFormat "%Y-%m-%d_%H%M%S%%+c.%%e" "-filename<FileModifyDate" -q "${input}" 2>&1)
+  return $?
+  # DATE=$(date -r "${input}" +%Y-%m-%d_%H%M%S)
 
-	# if [ "${overwrite}" = true ]; then
-	# 	[ "${dir}/${name}" = "${dir}/${DATE}.${ext}" ] && return 0
+  # if [ "${overwrite}" = true ]; then
+  # 	[ "${dir}/${name}" = "${dir}/${DATE}.${ext}" ] && return 0
 
-	# 	msg=$(mv "${dir}/${name}" "${dir}/${DATE}.${ext}" 2>&1)
-	# 	return $?
-	# else
-	# 	destination_dir="renamed"
-	# 	msg=$(mkdir -p "${destination_dir}" 2>&1 && cp "${dir}/${name}" "${dir}/${destination_dir}/${DATE}.${ext}" 2>&1)
-	# 	return $?
-	# fi
+  # 	msg=$(mv "${dir}/${name}" "${dir}/${DATE}.${ext}" 2>&1)
+  # 	return $?
+  # else
+  # 	destination_dir="renamed"
+  # 	msg=$(mkdir -p "${destination_dir}" 2>&1 && cp "${dir}/${name}" "${dir}/${destination_dir}/${DATE}.${ext}" 2>&1)
+  # 	return $?
+  # fi
 }
 
 ########################################
 
 ## set file's datetime from Exif date
-run_sffe () {
-	local datetime=$("${exiftool_bin}" -s3 -DateTimeOriginal "${input}" 2>/dev/null)
-	[ -z "${datetime}" ] && msg=msg_${action}_no_metadata && msg="${!msg}" && return 1
+run_sffe() {
+  local datetime=$("${exiftool_bin}" -s3 -DateTimeOriginal "${input}" 2>/dev/null)
+  [ -z "${datetime}" ] && msg=msg_${action}_no_metadata && msg="${!msg}" && return 1
 
-	msg=$("${exiftool_bin}" "-FileModifyDate=${datetime}" -q "${input}" 2>&1)
-	# msg=$("${jhead_bin}" -exonly -q -ft "${input}" 2>&1)
-	# code=$?
-	# [ -z "${msg}" ] && msg=msg_${action}_no_metadata && msg="${!msg}"
-	# return $code
-	return $?
+  msg=$("${exiftool_bin}" "-FileModifyDate=${datetime}" -q "${input}" 2>&1)
+  # msg=$("${jhead_bin}" -exonly -q -ft "${input}" 2>&1)
+  # code=$?
+  # [ -z "${msg}" ] && msg=msg_${action}_no_metadata && msg="${!msg}"
+  # return $code
+  return $?
 }
 
 ## set file's datetime from file's name
-run_sffn () {
-	echo "${input}" | egrep -q "[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}_[[:digit:]]{6}" || \
-		{ "${kdialog_bin}" --title "${!msg_title}" --icon configure --error "${msg_common_name_error}" && qdbus $dbus_ref close && exit 2; }
-	local DATE=$(echo "${input}" | sed "s/.*\([[:digit:]]\{4\}\)-\([[:digit:]]\{2\}\)-\([[:digit:]]\{2\}\)_\([[:digit:]]\{2\}\)\([[:digit:]]\{2\}\)\([[:digit:]]\{2\}\).*/\1\2\3\4\5.\6/")
+run_sffn() {
+  echo "${input}" | egrep -q "[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}_[[:digit:]]{6}" ||
+    { "${kdialog_bin}" --title "${!msg_title}" --icon configure --error "${msg_common_name_error}" && qdbus $dbus_ref close && exit 2; }
+  local DATE=$(echo "${input}" | sed "s/.*\([[:digit:]]\{4\}\)-\([[:digit:]]\{2\}\)-\([[:digit:]]\{2\}\)_\([[:digit:]]\{2\}\)\([[:digit:]]\{2\}\)\([[:digit:]]\{2\}\).*/\1\2\3\4\5.\6/")
 
-	msg=$(touch -t "${DATE}" "${input}" 2>&1)
-	return $?
+  msg=$(touch -t "${DATE}" "${input}" 2>&1)
+  return $?
 }
 
 ########################################
 
 ## set Exif datetime from file's date
-run_seff () {
-	# updating metadata creates a new file so overwriting and preserving file modification timestamp are needed
-	msg=$("${exiftool_bin}" -overwrite_original -preserve "-DateTimeOriginal<FileModifyDate" "-CreateDate<FileModifyDate" "-ModifyDate<FileModifyDate" -q "${input}" 2>&1)
-	# msg=$("${jhead_bin}" -q -dsft "${input}" 2>&1)
-	return $?
+run_seff() {
+  # updating metadata creates a new file so overwriting and preserving file modification timestamp are needed
+  msg=$("${exiftool_bin}" -overwrite_original -preserve "-DateTimeOriginal<FileModifyDate" "-CreateDate<FileModifyDate" "-ModifyDate<FileModifyDate" -q "${input}" 2>&1)
+  # msg=$("${jhead_bin}" -q -dsft "${input}" 2>&1)
+  return $?
 }
 
 ## set Exif datetime from file's name
-run_sefn () {
-	echo "${input}" | egrep -q "[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}_[[:digit:]]{6}" || \
-		{ "${kdialog_bin}" --title "${!msg_title}" --icon configure --error "${msg_common_name_error}" && qdbus $dbus_ref close && exit 2; }
-	local DATE=$(echo "${input}" | sed "s/.*\([[:digit:]]\{4\}\)-\([[:digit:]]\{2\}\)-\([[:digit:]]\{2\}\)_\([[:digit:]]\{2\}\)\([[:digit:]]\{2\}\)\([[:digit:]]\{2\}\).*/\1:\2:\3-\4:\5:\6/")
+run_sefn() {
+  echo "${input}" | egrep -q "[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}_[[:digit:]]{6}" ||
+    { "${kdialog_bin}" --title "${!msg_title}" --icon configure --error "${msg_common_name_error}" && qdbus $dbus_ref close && exit 2; }
+  local DATE=$(echo "${input}" | sed "s/.*\([[:digit:]]\{4\}\)-\([[:digit:]]\{2\}\)-\([[:digit:]]\{2\}\)_\([[:digit:]]\{2\}\)\([[:digit:]]\{2\}\)\([[:digit:]]\{2\}\).*/\1:\2:\3-\4:\5:\6/")
 
-	msg=$("${exiftool_bin}" -overwrite_original -preserve "-DateTimeOriginal=${DATE}" "-CreateDate=${DATE}" "-ModifyDate=${DATE}" -q "${input}" 2>&1)
-	# msg=$("${jhead_bin}" -q -ts$DATE "${input}" 2>&1)
-	return $?
+  msg=$("${exiftool_bin}" -overwrite_original -preserve "-DateTimeOriginal=${DATE}" "-CreateDate=${DATE}" "-ModifyDate=${DATE}" -q "${input}" 2>&1)
+  # msg=$("${jhead_bin}" -q -ts$DATE "${input}" 2>&1)
+  return $?
 }
 
 ## Add comment
-run_ac () {
-	msg=$("${exiftool_bin}" -overwrite_original -preserve -UserComment="${comment}" "${input}" 2>&1) # adds comment as exif's UserComment tag
-	# msg=$("${jhead_bin}" -q -cl "${comment}" "${input}" 2>&1) # adds comment as jpeg's Comment tag
-	return $?
+run_ac() {
+  msg=$("${exiftool_bin}" -overwrite_original -preserve -UserComment="${comment}" "${input}" 2>&1) # adds comment as exif's UserComment tag
+  # msg=$("${jhead_bin}" -q -cl "${comment}" "${input}" 2>&1) # adds comment as jpeg's Comment tag
+  return $?
 }
 
 ## Viwe metadata
-run_ve () {
-	msg=$("${exiftool_bin}" -S "${input}" 2>&1)
-	# msg=$("${jhead_bin}" -q -exifmap "${input}" | grep -v "^Map" 2>&1)
-	$kdialog_bin --msgbox "${msg}"
-	code=$?
-	[ "${code}" -eq 2 ] && return 0 # suppress error when dialog is closed
-	return "${code}"
+run_ve() {
+  msg=$("${exiftool_bin}" -S "${input}" 2>&1)
+  # msg=$("${jhead_bin}" -q -exifmap "${input}" | grep -v "^Map" 2>&1)
+  $kdialog_bin --msgbox "${msg}"
+  code=$?
+  [ "${code}" -eq 2 ] && return 0 # suppress error when dialog is closed
+  return "${code}"
 }
 
 ## Extract metadata to file
-run_ee () {
-	msg=$("${exiftool_bin}" -s "${input}" > "${input%.*}.txt" 2>&1)
-	# msg=$("${jhead_bin}" -q -exifmap "${input}" | grep -v "^Map" > "${dir}/${base}.txt" 2>&1)
-	return $?
+run_ee() {
+  msg=$("${exiftool_bin}" -s "${input}" >"${input%.*}.txt" 2>&1)
+  # msg=$("${jhead_bin}" -q -exifmap "${input}" | grep -v "^Map" > "${dir}/${base}.txt" 2>&1)
+  return $?
 }
 
 ## Delete comment field
-run_dc () {
-	# deletes both exif's UserComment and jpeg's Comment tags from image
-	msg=$("${exiftool_bin}" -overwrite_original -preserve -UserComment= -Comment= "${input}" 2>&1)
-	# msg=$("${jhead_bin}" -q -dc "${input}" 2>&1)
-	return $?
+run_dc() {
+  # deletes both exif's UserComment and jpeg's Comment tags from image
+  msg=$("${exiftool_bin}" -overwrite_original -preserve -UserComment= -Comment= "${input}" 2>&1)
+  # msg=$("${jhead_bin}" -q -dc "${input}" 2>&1)
+  return $?
 }
 
 ## Strip Exif section
-run_de () {
-	msg=$("${exiftool_bin}" -overwrite_original -preserve -EXIF:All= "${input}" 2>&1)
-	# msg=$("${jhead_bin}" -q -de "${input}" 2>&1)
-	return $?
+run_de() {
+  msg=$("${exiftool_bin}" -overwrite_original -preserve -EXIF:All= "${input}" 2>&1)
+  # msg=$("${jhead_bin}" -q -de "${input}" 2>&1)
+  return $?
 }
 
 ## Delete IPTC section
-run_di () {
-	msg=$("${exiftool_bin}" -overwrite_original -preserve -IPTC:All= "${input}" 2>&1) # removes iptc tags
-	# msg=$("${jhead_bin}" -q -di "${input}" 2>&1) # removes iptc, photoshop, and jfif tags
-	return $?
+run_di() {
+  msg=$("${exiftool_bin}" -overwrite_original -preserve -IPTC:All= "${input}" 2>&1) # removes iptc tags
+  # msg=$("${jhead_bin}" -q -di "${input}" 2>&1) # removes iptc, photoshop, and jfif tags
+  return $?
 }
 
 ## Delete XMP section
-run_dx () {
-	msg=$("${exiftool_bin}" -overwrite_original -preserve -XMP:All= "${input}" 2>&1) # removes xmp tags
-	# msg=$("${jhead_bin}" -q -dx "${input}" 2>&1) # removes xmp and jfif tags
-	return $?
+run_dx() {
+  msg=$("${exiftool_bin}" -overwrite_original -preserve -XMP:All= "${input}" 2>&1) # removes xmp tags
+  # msg=$("${jhead_bin}" -q -dx "${input}" 2>&1) # removes xmp and jfif tags
+  return $?
 }
 
 ## Strip all unnecessary data
-run_purejpg () {
-	msg=$("${exiftool_bin}" -overwrite_original -preserve -all= -tagsFromFile @ -Orientation -ICC_Profile "${input}" 2>&1) # removes all metadata except orientation and icc color profiles
-	# msg=$("${jhead_bin}" -q -purejpg "${input}" 2>&1) # removes all metadata
-	return $?
+run_purejpg() {
+  msg=$("${exiftool_bin}" -overwrite_original -preserve -all= -tagsFromFile @ -Orientation -ICC_Profile "${input}" 2>&1) # removes all metadata except orientation and icc color profiles
+  # msg=$("${jhead_bin}" -q -purejpg "${input}" 2>&1) # removes all metadata
+  return $?
 }
 
 ## Strip all metadata
-run_stripall () {
-	msg=$("${exiftool_bin}" -overwrite_original -preserve -all= "${input}" 2>&1)
-	return $?
+run_stripall() {
+  msg=$("${exiftool_bin}" -overwrite_original -preserve -all= "${input}" 2>&1)
+  return $?
 }
 
 ########################################
 
-do_you_want_to_overwrite () {
-	"${kdialog_bin}" --icon configure --title "${!msg_title}" --warningyesno "${msg_common_overwrite_text}" && overwrite=true || \
-		{
-			[ $? -eq 1 ] && overwrite=false || \
-				{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
-		}
+do_you_want_to_overwrite() {
+  "${kdialog_bin}" --icon configure --title "${!msg_title}" --warningyesno "${msg_common_overwrite_text}" && overwrite=true ||
+    {
+      [ $? -eq 1 ] && overwrite=false ||
+        { "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
+    }
 }
 
-manage_input_separately () {
-	[ ${#} -lt 1 ] && help
-	[ ${#} -gt 1 ] && multiple_files=true
+manage_input_separately() {
+  [ ${#} -lt 1 ] && help
+  [ ${#} -gt 1 ] && multiple_files=true
 
-	# update messages with presently available vars
-	load_language
+  # update messages with presently available vars
+  load_language
 
-	type run_${action} > /dev/null || \
-		{ "${kdialog_bin}" --title "${msg_common_software_not_found_title}" --icon configure --error "${msg_common_action_not_found_text}" && exit 2; }
+  type run_${action} >/dev/null ||
+    { "${kdialog_bin}" --title "${msg_common_software_not_found_title}" --icon configure --error "${msg_common_action_not_found_text}" && exit 2; }
 
-	[ "${ask_overwrite}" = true ] && do_you_want_to_overwrite
+  [ "${ask_overwrite}" = true ] && do_you_want_to_overwrite
 
-	quantity=$#
-	dbus_ref=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --progressbar "${msg_common_start}" $quantity)
-	qdbus $dbus_ref showCancelButton true
-	processed=0
+  quantity=$#
+  dbus_ref=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --progressbar "${msg_common_start}" $quantity)
+  qdbus $dbus_ref showCancelButton true
+  processed=0
 
-	for input in "$@"; do
-		## Check if cancel button has been pushed
-		[ "$(qdbus $dbus_ref wasCancelled)" = "true" ] && \
-			qdbus $dbus_ref close && "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
+  for input in "$@"; do
+    ## Check if cancel button has been pushed
+    [ "$(qdbus $dbus_ref wasCancelled)" = "true" ] &&
+      qdbus $dbus_ref close && "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2
 
-		dir=$(dirname -- "${input}")
-		name="${input##*/}"
-		base="${name%.*}"
-		ext="${name##*.}"
+    dir=$(dirname -- "${input}")
+    name="${input##*/}"
+    base="${name%.*}"
+    ext="${name##*.}"
 
-		processed=$(($processed + 1))
-		load_language
+    processed=$(($processed + 1))
+    load_language
 
-		[ ! -f "${input}" ] && "${kdialog_bin}" --title --icon configure "${!msg_title}" --error "${msg_common_file_not_found}" && break
-		qdbus $dbus_ref setLabelText "${msg_common_progress_text}"
+    [ ! -f "${input}" ] && "${kdialog_bin}" --title --icon configure "${!msg_title}" --error "${msg_common_file_not_found}" && break
+    qdbus $dbus_ref setLabelText "${msg_common_progress_text}"
 
-		# msg_finish_title=msg_${action}_finish_title
-		run_${action} && \
-			"${kdialog_bin}" --title "${!msg_finish_title}" --passivepopup "${msg_common_finish_ok}" 5 || \
-			{ qdbus $dbus_ref close; "${kdialog_bin}" --icon configure --title "${!msg_finish_title}" --detailederror "${msg_common_finish_error}" "${msg}"; exit 2; }
+    # msg_finish_title=msg_${action}_finish_title
+    run_${action} &&
+      "${kdialog_bin}" --title "${!msg_finish_title}" --passivepopup "${msg_common_finish_ok}" 5 ||
+      {
+        qdbus $dbus_ref close
+        "${kdialog_bin}" --icon configure --title "${!msg_finish_title}" --detailederror "${msg_common_finish_error}" "${msg}"
+        exit 2
+      }
 
-		qdbus $dbus_ref org.freedesktop.DBus.Properties.Set org.kde.kdialog.ProgressDialog value $processed
-	done
+    qdbus $dbus_ref org.freedesktop.DBus.Properties.Set org.kde.kdialog.ProgressDialog value $processed
+  done
 
-	qdbus $dbus_ref close
+  qdbus $dbus_ref close
 }
 
-manage_input_at_once () {
-	[ ${#} -lt 1 ] && help
+manage_input_at_once() {
+  [ ${#} -lt 1 ] && help
 
-	dir=$(dirname -- "${1}")
-	name="${1##*/}"
-	load_language
+  dir=$(dirname -- "${1}")
+  name="${1##*/}"
+  load_language
 
-	# msg_finish_title=msg_${action}_finish_title
-	run_${action} "${@}" && \
-		"${kdialog_bin}" --title "${!msg_finish_title}" --passivepopup "${msg_common_finish_ok}" 5 || \
-		{ qdbus $dbus_ref close; "${kdialog_bin}" --icon configure --title "${!msg_finish_title}" --detailederror "${msg_common_finish_error}" "${msg}"; exit 2; }
+  # msg_finish_title=msg_${action}_finish_title
+  run_${action} "${@}" &&
+    "${kdialog_bin}" --title "${!msg_finish_title}" --passivepopup "${msg_common_finish_ok}" 5 ||
+    {
+      qdbus $dbus_ref close
+      "${kdialog_bin}" --icon configure --title "${!msg_finish_title}" --detailederror "${msg_common_finish_error}" "${msg}"
+      exit 2
+    }
 
 }
 
 ######################################## Set compress and resize input
 
-set_compress () {
-	value="${1}"
-	quality="75%"
-	shift
+set_compress() {
+  value="${1}"
+  quality="75%"
+  shift
 
-	load_language
+  load_language
 
-	if [ "${value}" = "custom" ]; then
-		quality=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_compress_quality_input_text}" "${quality}") || \
-			{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
-	else
-		quality="${value}"
-	fi
+  if [ "${value}" = "custom" ]; then
+    quality=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_compress_quality_input_text}" "${quality}") ||
+      { "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
+  else
+    quality="${value}"
+  fi
 
-	ask_overwrite=true
-	manage_input_separately "${@}"
+  ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
-set_optimize () {
-	ask_overwrite=true
-	manage_input_separately "${@}"
+set_optimize() {
+  ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
-set_progressive () {
-	ask_overwrite=true
-	manage_input_separately "${@}"
+set_progressive() {
+  ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
-set_resize () {
-	value="${1}"
-	shift
+set_resize() {
+  value="${1}"
+  shift
 
-	load_language
+  load_language
 
-	if [ "${value}" = "custom" ]; then
-		scale=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_resize_scale_input_text}") || \
-			{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
-	else
-		scale="${value}"
-	fi
+  if [ "${value}" = "custom" ]; then
+    scale=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_resize_scale_input_text}") ||
+      { "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
+  else
+    scale="${value}"
+  fi
 
-	ask_overwrite=true
-	manage_input_separately "${@}"
+  ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
 ######################################## Set convert and rotate input
 
-set_agif () {
-	[ ${#} -lt 2 ] && help
+set_agif() {
+  [ ${#} -lt 2 ] && help
 
-	default_delay=100
-	default_cicles_number=1
+  default_delay=100
+  default_cicles_number=1
 
-	delay=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_agif_delay_input_text}" $default_delay) || {
-		"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
-	}
+  delay=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_agif_delay_input_text}" $default_delay) || {
+    "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2
+  }
 
-	"${kdialog_bin}" --icon configure --title "${!msg_title}" --yesnocancel "${msg_agif_loop_input_text}" && loop=0 || {
-		[ $? -eq 1 ] && {
-			loop=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_agif_cicles_number_input_text}" $default_cicles_number) || {
-				"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
-			}
-		} || {
-			"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
-		}
-	}
+  "${kdialog_bin}" --icon configure --title "${!msg_title}" --yesnocancel "${msg_agif_loop_input_text}" && loop=0 || {
+    [ $? -eq 1 ] && {
+      loop=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_agif_cicles_number_input_text}" $default_cicles_number) || {
+        "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2
+      }
+    } || {
+      "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2
+    }
+  }
 
-	manage_input_at_once "${@}"
+  manage_input_at_once "${@}"
 }
 
-set_border () {
-	value="${1}"
-	shift
+set_border() {
+  value="${1}"
+  shift
 
-	if [ "${value}" = "custom" ]; then
-		color=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --getcolor --default "#FFFFFF") || \
-			{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
-	else
-		color="${value}"
-	fi
+  if [ "${value}" = "custom" ]; then
+    color=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --getcolor --default "#FFFFFF") ||
+      { "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
+  else
+    color="${value}"
+  fi
 
-	size="5%"
-	size=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_border_size_input_text}" "${size}") || \
-		{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
+  size="5%"
+  size=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_border_size_input_text}" "${size}") ||
+    { "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
 
-	ask_overwrite=true
-	manage_input_separately "${@}"
+  ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
-set_colorspace () {
-	value="${1}"
-	shift
+set_colorspace() {
+  value="${1}"
+  shift
 
-	ask_overwrite=true
-	manage_input_separately "${@}"
+  ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
-set_convert () {
-	value="${1}"
-	shift
+set_convert() {
+  value="${1}"
+  shift
 
-	load_language
+  load_language
 
-	[ "${value}" = "formats" ] && { formats; exit 0; }
+  [ "${value}" = "formats" ] && {
+    formats
+    exit 0
+  }
 
-	if [ "${value}" = "custom" ]; then
-		format=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_convert_format_input_text}") || \
-			{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
-	else
-		format="${value}"
-	fi
+  if [ "${value}" = "custom" ]; then
+    format=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_convert_format_input_text}") ||
+      { "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
+  else
+    format="${value}"
+  fi
 
-	for arg in "$@"; do
-		arg_ext="${arg##*.}"
-		[ "${arg_ext}" = "${format}" ] && ask_overwrite=true && break
-	done
+  for arg in "$@"; do
+    arg_ext="${arg##*.}"
+    [ "${arg_ext}" = "${format}" ] && ask_overwrite=true && break
+  done
 
-	manage_input_separately "${@}"
+  manage_input_separately "${@}"
 }
 
-set_favicons () {
-	value="${1}"
-	shift
+set_favicons() {
+  value="${1}"
+  shift
 
-	for arg in "$@"; do
-		arg_ext="${arg##*.}"
-		[ "${arg_ext}" = "${format}" ] && ask_overwrite=true && break
-	done
+  for arg in "$@"; do
+    arg_ext="${arg##*.}"
+    [ "${arg_ext}" = "${format}" ] && ask_overwrite=true && break
+  done
 
-	manage_input_separately "${@}"
+  manage_input_separately "${@}"
 }
 
-set_montage () {
-	img_to_add=$("${kdialog_bin}" --title "${!msg_title}" --icon document-open --getopenfilename " " ) || \
-		{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
+set_montage() {
+  img_to_add=$("${kdialog_bin}" --title "${!msg_title}" --icon document-open --getopenfilename " ") ||
+    { "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
 
-	img_to_add_name="${img_to_add##*/}"
-	img_to_add_base="${img_to_add_name%.*}"
+  img_to_add_name="${img_to_add##*/}"
+  img_to_add_base="${img_to_add_name%.*}"
 
-	manage_input_separately "${@}"
+  manage_input_separately "${@}"
 }
 
-set_overturn () {
-	value="${1}"
-	shift
+set_overturn() {
+  value="${1}"
+  shift
 
-	ask_overwrite=true
-	manage_input_separately "${@}"
+  ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
-set_rotate () {
-	value="${1}"
-	shift
+set_rotate() {
+  value="${1}"
+  shift
 
-	load_language
+  load_language
 
-	if [ "${value}" = "custom" ]; then
-		angle=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_rotate_angle_input_text}") || \
-			{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
-	else
-		angle="${value}"
-	fi
+  if [ "${value}" = "custom" ]; then
+    angle=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_rotate_angle_input_text}") ||
+      { "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
+  else
+    angle="${value}"
+  fi
 
-	ask_overwrite=true
-	manage_input_separately "${@}"
+  ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
-set_sepia () {
-	value="${1}"
-	shift
+set_sepia() {
+  value="${1}"
+  shift
 
-	ask_overwrite=true
-	manage_input_separately "${@}"
+  ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
-set_shadow () {
-	ask_overwrite=true
-	manage_input_separately "${@}"
+set_shadow() {
+  ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
-set_timestamp () {
-	ask_overwrite=true
-	manage_input_separately "${@}"
+set_timestamp() {
+  ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
-set_transparent2color () {
-	color=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --getcolor --default "#FFFFFF") || \
-		{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
+set_transparent2color() {
+  color=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --getcolor --default "#FFFFFF") ||
+    { "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
 
-	ask_overwrite=true
-	manage_input_separately "${@}"
+  ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
 ######################################## Set metadata functions input
 
 ## rename file with Exif datetime
-set_rfe () {
-	manage_input_separately "${@}"
+set_rfe() {
+  manage_input_separately "${@}"
 }
 
 ## rename file with file's datetime
-set_rff () {
-	# ask_overwrite=true
-	manage_input_separately "${@}"
+set_rff() {
+  # ask_overwrite=true
+  manage_input_separately "${@}"
 }
 
 ## set file's datetime from Exif date
-set_sffe () {
-	manage_input_separately "${@}"
+set_sffe() {
+  manage_input_separately "${@}"
 }
 
 ## set file's datetime from file's name
-set_sffn () {
-	manage_input_separately "${@}"
+set_sffn() {
+  manage_input_separately "${@}"
 }
 
 ## set Exif datetime from file's date
-set_seff () {
-	manage_input_separately "${@}"
+set_seff() {
+  manage_input_separately "${@}"
 }
 
 ## set Exif datetime from file's name
-set_sefn () {
-	manage_input_separately "${@}"
+set_sefn() {
+  manage_input_separately "${@}"
 }
 
 ## Add comment
-set_ac () {
-	comment=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_ac_comment_input_text}") || \
-		{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
+set_ac() {
+  comment=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_ac_comment_input_text}") ||
+    { "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
 
-	manage_input_separately "${@}"
+  manage_input_separately "${@}"
 }
 
 ## Viwe metadata
-set_ve () {
-	manage_input_separately "${@}"
+set_ve() {
+  manage_input_separately "${@}"
 }
 
 ## Extract metadata to file
-set_ee () {
-	manage_input_separately "${@}"
+set_ee() {
+  manage_input_separately "${@}"
 }
 
 ## Delete comment field
-set_dc () {
-	manage_input_separately "${@}"
+set_dc() {
+  manage_input_separately "${@}"
 }
 
 ## Strip Exif section
-set_de () {
-	manage_input_separately "${@}"
+set_de() {
+  manage_input_separately "${@}"
 }
 
 ## Delete IPTC section
-set_di () {
-	manage_input_separately "${@}"
+set_di() {
+  manage_input_separately "${@}"
 }
 
 ## Delete XMP section
-set_dx () {
-	manage_input_separately "${@}"
+set_dx() {
+  manage_input_separately "${@}"
 }
 
 ## Strip all unnecessary data
-set_purejpg () {
-	manage_input_separately "${@}"
+set_purejpg() {
+  manage_input_separately "${@}"
 }
 
 ## Strip all metadata
-set_stripall () {
-	manage_input_separately "${@}"
+set_stripall() {
+  manage_input_separately "${@}"
 }
 
 ################################################################################
@@ -1352,8 +1484,8 @@ kdialog_bin=$(which kdialog)
 [ -z "${kdialog_bin}" ] && echo "kdialog not found!" && exit 1
 
 magick_bin=$(which magick)
-[ -z "${magick_bin}" ] && \
-	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_magick_not_found_text}" && exit 2
+[ -z "${magick_bin}" ] &&
+  "${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_magick_not_found_text}" && exit 2
 
 # mogrify_bin=$(which mogrify)
 # [ -z "${mogrify_bin}" ] && \
@@ -1368,8 +1500,8 @@ magick_bin=$(which magick)
 # 	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_montage_not_found_text}" && exit 2
 
 exiftool_bin=$(which exiftool)
-[ -z "${exiftool_bin}" ] && \
-	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_exiftool_not_found_text}" && exit 2
+[ -z "${exiftool_bin}" ] &&
+  "${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_exiftool_not_found_text}" && exit 2
 
 # jhead_bin=$(which jhead)
 # [ -z "${jhead_bin}" ] && \
@@ -1386,8 +1518,8 @@ load_language
 msg_title=msg_${action}_title
 msg_finish_title=msg_${action}_finish_title
 
-type set_${action} &> /dev/null || \
-	{ "${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_action_not_found_text}" && exit 3; }
+type set_${action} &>/dev/null ||
+  { "${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_action_not_found_text}" && exit 3; }
 
 ask_overwrite=false
 set_${action} "${@}"
