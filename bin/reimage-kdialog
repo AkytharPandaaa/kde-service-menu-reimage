@@ -279,7 +279,7 @@ load_language_it() {
   msg_stripall_finish_title="Elimina tutti i metadati da \"${name}\""
 }
 
-load_language_de() {
+load_language_de_DE() {
   msg_common_software_not_found_title="Programm nicht gefunden"
   msg_common_magick_not_found_text="\"ImageMagick\" wurde nicht gefunden. Bitte installieren Sie es."
   msg_common_exiftool_not_found_text="\"Exiftool\" wurde nicht gefunden. Bitte installieren Sie es."
