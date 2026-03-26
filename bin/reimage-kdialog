@@ -403,7 +403,7 @@ load_language_de_DE() {
 load_language() {
   ## Load localized strings AFTER english strings
   ## - if localized strings not found use english for default
-  ## - if localized strings are incomplete use english only fot missing strings :-)
+  ## - if localized strings are incomplete use english only for missing strings :-)
   load_language_en_US && [ "${lang}" != "en_US" ] && load_language_${lang}
 }
 
